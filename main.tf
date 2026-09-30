@@ -12,10 +12,11 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "product_assets" {
-  bucket = "ecommerce-dev-product-assets-arun"
+
+  bucket = "${local.project_name}-${var.environment}-product-assets-arun"
 
   tags = {
-    Environment = "dev"
+    Environment = var.environment
     Purpose     = "product-assets"
   }
 }
